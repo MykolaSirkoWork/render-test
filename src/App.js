@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React, { useState} from 'react'
 import './App.css';
+import {useForceUpdate, Updates} from "./CheckRerender";
+
+
+
 
 function App() {
+  const forceUpdate = useForceUpdate();
+
+
   return (
     <div className="App">
+
+      <button onClick={forceUpdate}>Rerender check Parrent component</button>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+         <Updates updates={'eventUpdates.current++'}/>
+
       </header>
     </div>
   );
 }
 
-export default App;
+
+
+export default App ;
